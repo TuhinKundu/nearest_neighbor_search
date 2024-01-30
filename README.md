@@ -7,9 +7,9 @@ is the K nearest neighbor search. The [sentence transformers](https://huggingfac
 model was used to generate embeddings or high dimensional representations for 
 a given input sequence. The data provided has title and body present for the 
 corresponding job description. Three different set of embeddings were generated using 1) title 2) body 3) concatenation of title and body of a given job description record.
-Cosine similarity was used to compare between a query embedding (user input sequence or test set datapoint). 
-Generating the similarity matrix can be computational intensive in terms of time and memory. [FAISS](https://github.com/facebookresearch/faiss)
-library was used to index the embeddings/vectors which led to querying at lower latency speeds for topK vectors similar to the query vector.
+Cosine similarity was used to compare between a query embedding (user input sequence or test set datapoint) and the records present in the training set. 
+Generating the similarity matrix can be computationally intensive in terms of time and memory. [FAISS](https://github.com/facebookresearch/faiss)
+library was used to index the embeddings/vectors which led to querying at low latency speeds for topK vectors similar to the query vector.
 For evaluation, weighted macro averaged precision, recall, F1 score and accuracy were computed. ***The best model turned out be embeddings generated using only the title of the record.***
 Results obtained by the code at seed 42 for a 95-5 train test split where topk is 1 are below:
 
